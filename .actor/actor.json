@@ -1,0 +1,28 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "japan-jepx-mcp",
+  "title": "Japan JEPX Electricity Spot Price MCP",
+  "description": "MCP server — Japan wholesale electricity spot prices (JEPX). System + 9 area prices (Hokkaido, Tohoku, Tokyo, Chubu, Hokuriku, Kinki, Chugoku, Shikoku, Kyushu) at 30-min granularity (48 periods/day), JPY/kWh. Latest price, full-day curve, daily-average history, cheapest slots/areas.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "usesStandbyMode": true,
+  "webServerMcpPath": "/mcp",
+  "output": "./output_schema.json",
+  "meta": {
+    "templateId": "python-mcp-apify-actors"
+  },
+  "input": {
+    "title": "Actor input schema",
+    "description": "MCP server runs in Standby mode — input happens via MCP tool calls, not Actor input.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {},
+    "required": []
+  },
+  "dockerfile": "../Dockerfile",
+  "categories": [
+    "MCP_SERVERS",
+    "DEVELOPER_TOOLS"
+  ]
+}

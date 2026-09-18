@@ -1,0 +1,14 @@
+[project]
+name = "japan-jepx-mcp"
+version = "0.1.0"
+description = "MCP server: Japanese wholesale electricity spot prices (JEPX) — system + 9 area prices, 30-min granularity, JPY/kWh"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=3.0.0,<4.0.0",
+    "mcp>=1.25.0,<2.0.0",
+    "uvicorn>=0.30.0",
+]
+
+[tool.uv]
+package = false

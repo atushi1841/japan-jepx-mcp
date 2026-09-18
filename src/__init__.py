@@ -1,0 +1,1 @@
+"""japan-jepx-mcp package."""

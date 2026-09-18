@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "eventTitle": "jepx-0latest",
+      "eventDescription": "Latest JEPX spot price for an area",
+      "eventPriceUsd": 0.001,
+      "isPrimaryEvent": true
+    },
+    {
+      "eventTitle": "jepx-0day",
+      "eventDescription": "Full-day 30-min spot price curve for an area",
+      "eventPriceUsd": 0.001,
+      "isPrimaryEvent": true
+    },
+    {
+      "eventTitle": "jepx-0history",
+      "eventDescription": "Daily-average spot price history",
+      "eventPriceUsd": 0.001,
+      "isPrimaryEvent": true
+    },
+    {
+      "eventTitle": "jepx-0cheapest",
+      "eventDescription": "Cheapest spot slots / area comparison",
+      "eventPriceUsd": 0.001,
+      "isPrimaryEvent": true
+    }
+  ]
+}

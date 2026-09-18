@@ -1,0 +1,138 @@
+{
+  "manifest_version": "0.4",
+  "name": "japan-jepx-mcp",
+  "display_name": "Japan JEPX Electricity Spot Price MCP — 日本の電力卸売りスポット価格",
+  "version": "0.1.0",
+  "description": "日本の卸売り電力スポット価格（JEPX）をAIエージェントに提供します。システムプライス（全国）＋9エリア（北海道・東北・東京・中部・北陸・関西・中国・四国・九州）を30分刻み（48コマ/日）・円/kWhで返します。最新価格・当日全コマ曲線・日次平均履歴・最安スロット/エリア。",
+  "long_description": "JEPX（日本卸電力取引所）のスポット市場セツルメント価格（30分毎・48コマ/日、システムプライス＋9エリア）を、AIエージェントから直接照会できるMCPツール群として提供します。\\n\\n## 提供ツール\\n\\n| ツール | 内容 |\\n|---|---|\\n| `get_latest_spot_price` | 指定エリアの最新スポット価格（円/kWh） |\\n| `get_spot_price_by_day` | 指定日の48コマ全曲線＋min/max/avg |\\n| `get_spot_price_history` | 直近N日の日次平均履歴＋min/max/avg |\\n| `get_cheapest_spot` | 最安の30分スロット／9エリア比較 |\\n| `list_spot_areas` | 照会可能な全エリア・単位・最新日の一覧 |\\n\\n## 利用シナリオ\\n\\n- EV充電スケジューラ（安価時間帯に充電）\\n- 蓄電池運用・アービトラージ\\n- 製造業の負荷シフト（安い時間帯に電力を使用）\\n- 電力市場の監視・分析\\n\\n## データ・単位\\n\\n- 単位: 円/kWh（JPY/kWh）、30分刻み（48コマ/日）\\n- データソース: JEPXスポット取引セツルメント価格（政府標準利用規約）\\n- 同梱シードキャッシュ（約400日分）＋ライブ取得試行（JEPX.orgがIP制限時はシードへフォールバック）\\n\\nこのバンドルには約3.6MBのシードキャッシュ (`data/jepx_spot.json`) を同梱しています。",
+  "author": {
+    "name": "atushi1841",
+    "url": "https://github.com/atushi1841"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atushi1841/japan-jepx-mcp"
+  },
+  "homepage": "https://apify.com/fruitful_quintessence/japan-jepx-mcp",
+  "server": {
+    "type": "python",
+    "entry_point": "src/stdio_main.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/stdio_main.py"
+      ]
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  },
+  "tools": [
+    {
+      "name": "get_latest_spot_price",
+      "description": "Get the latest JEPX wholesale electricity spot price for a Japanese area.\\n\\nSystem (nationwide) price plus 9 regional area prices (Hokkaido, Tohoku, Tokyo, Chubu, Hokuriku, Kinki/Kansai, Chugoku, Shikoku, Kyushu). 30-min granularity (48 periods/day), in JPY/kWh. Ideal for EV charging scheduling, battery arbitrage and load-shifting.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "area": {
+            "default": "tokyo",
+            "type": "string",
+            "description": "area key — system | hokkaido | tohoku | tokyo | chubu | hokuriku | kinki | chugoku | shikoku | kyushu (romaji or kanji accepted, e.g. tokyo / 東京)"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_spot_price_by_day",
+      "description": "Get the full 30-min spot price curve (all 48 periods) for one day and area.\\n\\nReturns day/area, the 48-period series, and min/max/average. Use for intraday cost analysis, load scheduling and forecasting comparison.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "area": {
+            "default": "tokyo",
+            "type": "string",
+            "description": "area key (romaji or kanji). default tokyo."
+          },
+          "date": {
+            "default": "",
+            "type": "string",
+            "description": "date in YYYY-MM-DD format. default = latest available day."
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_spot_price_history",
+      "description": "Get recent daily-average spot price history for a Japanese area.\\n\\nDaily averages over the last N days with the series and window min/max/avg. Useful for trend analysis, cost forecasting and market monitoring.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "area": {
+            "default": "tokyo",
+            "type": "string",
+            "description": "area key (romaji or kanji). default tokyo."
+          },
+          "days": {
+            "default": 14,
+            "type": "integer",
+            "description": "number of recent days (1-400). default 14."
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_cheapest_spot",
+      "description": "Find the cheapest JEPX spot price.\\n\\nWith an area: the cheapest 30-min slots of the latest day (for shifting load to cheap hours). Without an area: the 9 areas ranked by latest-day average (cheapest region first).",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "area": {
+            "default": "",
+            "type": "string",
+            "description": "area key, or empty to rank areas. default empty (compare areas)."
+          },
+          "limit": {
+            "default": 5,
+            "type": "integer",
+            "description": "number of rows (1-48). default 5."
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_spot_areas",
+      "description": "List all queryable JEPX areas, the price unit and periods per day.\\n\\nCall this first if unsure which area keys are valid. Returns the system price key, the 9 regional areas and labels, unit (JPY/kWh) and latest date.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
+    }
+  ],
+  "keywords": [
+    "japan",
+    "jepx",
+    "electricity",
+    "spot price",
+    "power price",
+    "energy",
+    "ev charging",
+    "battery",
+    "wholesale",
+    "jpy"
+  ]
+}
