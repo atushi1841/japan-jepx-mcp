@@ -69,6 +69,13 @@ Apify Actor `japan-jepx-mcp` (Standby mode, `webServerMcpPath=/mcp`,
 `Dockerfile CMD ["python", "-m", "src.main"]`):
 `https://fruitful-quintessence--japan-jepx-mcp.apify.actor/mcp`
 
+
+
+## Apify Store
+
+This MCP server is also available as a managed Apify Actor:
+
+- **[Apify Store: japan-jepx-mcp](https://apify.com/fruitful_quintessence/japan-jepx-mcp)** — Japanese wholesale electricity spot prices from JEPX (PPE课金). Run from the Apify Store (Run button), then point your MCP client at the endpoint.
 ## Data & attribution
 
 - **Source**: JEPX (Japan Electric Power Exchange) spot market settlement prices — [jepx.org](https://www.jepx.org) · OCCTO demand/supply area price forecast — [occto.or.jp](https://www.occto.or.jp)
