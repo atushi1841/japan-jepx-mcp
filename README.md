@@ -81,3 +81,17 @@ This MCP server is also available as a managed Apify Actor:
 - **Source**: JEPX (Japan Electric Power Exchange) spot market settlement prices — [jepx.org](https://www.jepx.org) · OCCTO demand/supply area price forecast — [occto.or.jp](https://www.occto.or.jp)
 - **Data licensing**: Government Standard Terms of Use (出典明示で商用利用可)
 - **Unit**: JPY/kWh (円/kWh); 48 × 30-min periods per trading day
+
+## Install via Smithery
+
+Connect this MCP server to your AI client (Claude Desktop, Cursor, VS Code) in one command:
+
+```bash
+npx @smithery/cli install atushi1841/japan-jepx-mcp --client claude
+```
+
+Replace `claude` with `cursor`, `vscode`, or `cline` for other clients.
+
+Alternatively, install directly from the [Smithery registry](https://smithery.ai/server/atushi1841/japan-jepx-mcp).
+
+> **Note:** Smithery server listing is pending verification. Once verified, this server will appear in search results with useCount tracking.
