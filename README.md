@@ -95,3 +95,8 @@ Replace `claude` with `cursor`, `vscode`, or `cline` for other clients.
 Alternatively, install directly from the [Smithery registry](https://smithery.ai/server/atushi1841/japan-jepx-mcp).
 
 > **Note:** Smithery server listing is pending verification. Once verified, this server will appear in search results with useCount tracking.
+
+## MCP Registry
+
+This server is registered on the official [MCP Registry](https://registry.modelcontextprotocol.io).
+Find it via search: [japan-jepx-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.japan-jepx-mcp)
