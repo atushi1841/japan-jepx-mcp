@@ -1,0 +1,80 @@
+# Git
+.git/
+.gitignore
+
+# GitHub
+.github/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+docs/
+docs/*
+
+# Misc
+*.log
+*.sql
+*.sqlite
+
+# Data files that might be large - exclude if not needed at runtime
+# For JEPX, the data/jepx_spot.json is referenced in manifest as bundled seed cache
+# So we should INCLUDE it, not exclude it
+# But let's check if it's needed - the manifest says it bundles the seed cache
+# So we'll keep data/
+
+# Packing script outputs
+server.mcpb
