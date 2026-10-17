@@ -6,12 +6,12 @@
     "url": "https://github.com/atushi1841/japan-jepx-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/atushi1841/japan-jepx-mcp/releases/download/0.1.0/server.mcpb",
-      "version": "0.1.0",
+      "identifier": "https://github.com/atushi1841/japan-jepx-mcp/releases/download/0.1.1/server.mcpb",
+      "version": "0.1.1",
       "fileSha256": "7540fbea4e66798ab1b7589ff873d4bb520bcebd272261b3a39c31207e6cd754",
       "transport": {
         "type": "stdio"
