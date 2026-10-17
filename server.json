@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.atushi1841/japan-jepx-mcp",
-  "description": "Japan JEPX Electricity Spot Price MCP server - wholesale spot prices (system + 9 areas, 30-min, JPY/kWh)",
+  "description": "Japan JEPX Electricity Spot Price MCP - wholesale spot prices (system + 9 areas, 30-min, JPY/kWh)",
   "repository": {
     "url": "https://github.com/atushi1841/japan-jepx-mcp",
     "source": "github"
@@ -12,7 +12,7 @@
       "registryType": "mcpb",
       "identifier": "https://github.com/atushi1841/japan-jepx-mcp/releases/download/0.1.0/server.mcpb",
       "version": "0.1.0",
-      "fileSha256": "ab8c7af53d4e4e94c747546a05a8b0fad10347817fd35fd3cc7e3b7ee897b7ce",
+      "fileSha256": "7540fbea4e66798ab1b7589ff873d4bb520bcebd272261b3a39c31207e6cd754",
       "transport": {
         "type": "stdio"
       }
