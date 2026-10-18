@@ -100,3 +100,9 @@ Alternatively, install directly from the [Smithery registry](https://smithery.ai
 
 This server is registered on the official [MCP Registry](https://registry.modelcontextprotocol.io).
 Find it via search: [japan-jepx-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.japan-jepx-mcp)
+
+---
+## Data & Store
+
+- **Apify Store:** https://apify.com/fruitful_quintessence
+- **Gumroad datasets:** https://atushi5.gumroad.com/l/kutuxe
