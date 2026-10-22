@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.atushi1841/japan-jepx-mcp",
-  "description": "Japan JEPX Electricity Spot Price MCP - wholesale spot prices (system + 9 areas, 30-min, JPY/kWh)\n\n- **Apify Store**: https://apify.com/fruitful_quintessence\n- **Gumroad**: https://atushi5.gumroad.com/l/kutuxe",
+  "description": "Japan JEPX Electricity Spot Price MCP - wholesale spot prices (system + 9 areas, 30-min, JPY/kWh)\n\n-.",
   "repository": {
     "url": "https://github.com/atushi1841/japan-jepx-mcp",
     "source": "github"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packages": [
     {
       "registryType": "mcpb",
